@@ -1,9 +1,14 @@
-# api documentation for  [jsonp (v0.2.1)](https://github.com/LearnBoost/jsonp#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-jsonp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-jsonp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-jsonp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-jsonp)
+# npmdoc-jsonp
+
+#### api documentation for  [jsonp (v0.2.1)](https://github.com/LearnBoost/jsonp#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-jsonp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-jsonp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-jsonp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-jsonp)
+
 #### A sane JSONP implementation.
 
-[![NPM](https://nodei.co/npm/jsonp.png?downloads=true)](https://www.npmjs.com/package/jsonp)
+[![NPM](https://nodei.co/npm/jsonp.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/jsonp)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-jsonp/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-jsonp_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-jsonp/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-jsonp/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-jsonp/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-jsonp/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-jsonp/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-jsonp/build/screenCapture.npmPackageListing.svg)
 
@@ -41,21 +46,17 @@
     "homepage": "https://github.com/LearnBoost/jsonp#readme",
     "maintainers": [
         {
-            "name": "feross",
-            "email": "feross@feross.org"
+            "name": "feross"
         },
         {
-            "name": "rauchg",
-            "email": "rauchg@gmail.com"
+            "name": "rauchg"
         },
         {
-            "name": "tootallnate",
-            "email": "nathan@tootallnate.net"
+            "name": "tootallnate"
         }
     ],
     "name": "jsonp",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/LearnBoost/jsonp.git"
@@ -67,16 +68,6 @@
     "version": "0.2.1"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module jsonp](#apidoc.module.jsonp)
-
-
-
-# <a name="apidoc.module.jsonp"></a>[module jsonp](#apidoc.module.jsonp)
 
 
 

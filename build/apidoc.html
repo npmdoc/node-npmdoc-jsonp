@@ -61,12 +61,92 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.jsonp">module jsonp</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsonp.jsonp">
+            function <span class="apidocSignatureSpan"></span>jsonp
+            <span class="apidocSignatureSpan">(url, opts, fn)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jsonp" id="apidoc.module.jsonp">module jsonp</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jsonp.jsonp" id="apidoc.element.jsonp.jsonp">
+        function <span class="apidocSignatureSpan"></span>jsonp
+        <span class="apidocSignatureSpan">(url, opts, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function jsonp(url, opts, fn){
+  if (&#x27;function&#x27; == typeof opts) {
+    fn = opts;
+    opts = {};
+  }
+  if (!opts) opts = {};
+
+  var prefix = opts.prefix || &#x27;__jp&#x27;;
+
+  // use the callback name that was passed if one was provided.
+  // otherwise generate a unique name by incrementing our counter.
+  var id = opts.name || (prefix + (count++));
+
+  var param = opts.param || &#x27;callback&#x27;;
+  var timeout = null != opts.timeout ? opts.timeout : 60000;
+  var enc = encodeURIComponent;
+  var target = document.getElementsByTagName(&#x27;script&#x27;)[0] || document.head;
+  var script;
+  var timer;
+
+
+  if (timeout) {
+    timer = setTimeout(function(){
+      cleanup();
+      if (fn) fn(new Error(&#x27;Timeout&#x27;));
+    }, timeout);
+  }
+
+  function cleanup(){
+    if (script.parentNode) script.parentNode.removeChild(script);
+    window[id] = noop;
+    if (timer) clearTimeout(timer);
+  }
+
+  function cancel(){
+    if (window[id]) {
+      cleanup();
+    }
+  }
+
+  window[id] = function(data){
+    debug(&#x27;jsonp got&#x27;, data);
+    cleanup();
+    if (fn) fn(null, data);
+  };
+
+  // add qs component
+  url += (~url.indexOf(&#x27;?&#x27;) ? &#x27;&#x26;&#x27; : &#x27;?&#x27;) + param + &#x27;=&#x27; + enc(id);
+  url = url.replace(&#x27;?&#x26;&#x27;, &#x27;?&#x27;);
+
+  debug(&#x27;jsonp req &#x22;%s&#x22;&#x27;, url);
+
+  // create script
+  script = document.createElement(&#x27;script&#x27;);
+  script.src = url;
+  target.parentNode.insertBefore(script, target);
+
+  return cancel;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 

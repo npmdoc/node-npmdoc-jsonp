@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/LearnBoost/jsonp#readme"
-
-    >jsonp (v0.2.1)</a>
+    <a href="https://github.com/LearnBoost/jsonp#readme">jsonp (v0.2.1)</a>
 </h1>
 <h4>A sane JSONP implementation.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.jsonp">module jsonp</a><ol>
 
@@ -86,22 +79,22 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function jsonp(url, opts, fn){
-  if (&#x27;function&#x27; == typeof opts) {
+  if ('function' == typeof opts) {
     fn = opts;
     opts = {};
   }
   if (!opts) opts = {};
 
-  var prefix = opts.prefix || &#x27;__jp&#x27;;
+  var prefix = opts.prefix || '__jp';
 
   // use the callback name that was passed if one was provided.
   // otherwise generate a unique name by incrementing our counter.
   var id = opts.name || (prefix + (count++));
 
-  var param = opts.param || &#x27;callback&#x27;;
+  var param = opts.param || 'callback';
   var timeout = null != opts.timeout ? opts.timeout : 60000;
   var enc = encodeURIComponent;
-  var target = document.getElementsByTagName(&#x27;script&#x27;)[0] || document.head;
+  var target = document.getElementsByTagName('script')[0] || document.head;
   var script;
   var timer;
 
@@ -109,7 +102,7 @@
   if (timeout) {
     timer = setTimeout(function(){
       cleanup();
-      if (fn) fn(new Error(&#x27;Timeout&#x27;));
+      if (fn) fn(new Error('Timeout'));
     }, timeout);
   }
 
@@ -126,19 +119,19 @@
   }
 
   window[id] = function(data){
-    debug(&#x27;jsonp got&#x27;, data);
+    debug('jsonp got', data);
     cleanup();
     if (fn) fn(null, data);
   };
 
   // add qs component
-  url += (~url.indexOf(&#x27;?&#x27;) ? &#x27;&#x26;&#x27; : &#x27;?&#x27;) + param + &#x27;=&#x27; + enc(id);
-  url = url.replace(&#x27;?&#x26;&#x27;, &#x27;?&#x27;);
+  url += (~url.indexOf('?') ? '&amp;' : '?') + param + '=' + enc(id);
+  url = url.replace('?&amp;', '?');
 
-  debug(&#x27;jsonp req &#x22;%s&#x22;&#x27;, url);
+  debug('jsonp req "%s"', url);
 
   // create script
-  script = document.createElement(&#x27;script&#x27;);
+  script = document.createElement('script');
   script.src = url;
   target.parentNode.insertBefore(script, target);
 
@@ -156,3 +149,4 @@
     ]
 </div>
 </div>
+</body></html>
